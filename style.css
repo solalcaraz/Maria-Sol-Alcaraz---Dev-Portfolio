@@ -1,0 +1,441 @@
+/* Estilos generales para toda la pagina */
+:root {
+    --primary-color: #fff199;
+    /* Uso: Áreas grandes y prominentes de tu diseño, como el fondo del cuerpo principal de la página o secciones destacadas. */
+    --secondary-color: #93d79e;
+    /* Uso: Elementos que necesiten destacar pero no sean el foco principal. Utilízalo para fondos de secciones menores, tarjetas de información, encabezados secundarios, iconos y gráficos. */
+    /* --accent-color: #D0FF00; */
+    --accent-color: #20f0c3;
+    /* Uso: Llamar la atención sobre elementos importantes de acción o información crítica, como botones, enlaces, alertas y elementos interactivos. El uso debe ser moderado. */
+    /* --background-color: #03522a; */
+    --background-color: #350032;
+    --text-color: #e1f9dc;
+    --text2-color: #202020;
+    --degradiente-color: linear-gradient(to right, var(--primary-color), var(--accent-color));
+
+    /*
+    background-color: #0a3c01;
+    --primary-color: #fff199;
+    --secondary-color: #93d79e;
+    --accent-color: #D0FF00;
+    --background-color: #67EACA;
+    --text-color: #363636;
+    */
+}
+*{
+    margin: 0;
+    padding: 0; /* ESTE QUIZAS NO ES NECESARIO */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* HEADER */
+.header{
+    height: 13vh;
+    position: sticky;
+    top: 0;
+    z-index: 10;   
+    background-color: rgba(255, 0, 242, 0.163);
+    
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 40px;
+        margin-right: 60px;
+        padding: .8rem 2rem;
+
+        .nav-logo{
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            
+            & img{ margin-right: 0.5rem; }
+            & span{ margin-top: 0.3rem; }
+        }
+        
+        .nav-list{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            
+            .nav-link{
+                color: var(--text-color);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1.1rem;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                
+                /* Efecto de boton */
+                transition: transform 0.3s, box-shadow 0.3s;
+                
+                &:hover {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                }
+            }
+        }    
+    }
+
+    /* Efecto de movimiento */
+    animation: scroll-header linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 100px;
+}
+
+/* ANIMACION PARA EL HEADER */
+@keyframes scroll-header {
+    to{
+        background: rgba(255, 0, 242, 0.329);
+        backdrop-filter: blur(5px);
+        color: #363636;
+    }
+}
+
+/* CONTENIDO PRINCIPAL - INTRO */
+.main{
+    .intro{
+        height: 90vh;
+        margin: 20px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 7rem;
+
+        .fotoPrincipal{
+            border-radius: 15px;
+            width: 18rem;
+        }
+        .text-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            
+            .title{
+                font-size: 2.7rem;
+                font-weight: 200;
+                align-items: center;
+            }
+            .subtitle{
+                font-size: 2.2rem;
+                font-weight: 500;
+                background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .social{
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 20px;
+
+                .social-link{
+                    text-decoration: none;
+                    color: var(--text-color);
+                    
+                    /* Efecto de redes */
+                    transition: transform 0.3s, color 0.3s;
+                    
+                    &:hover{
+                        transform: scale(1.5);
+                    }
+                }
+                .icon{
+                    font-size: 2rem; 
+                    width: 2rem;     
+                    height: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+/* Estilo general para los titulos */
+    & section{
+        margin-top: 60px;
+        padding: 80px 50px;
+
+        & .title{
+            margin-left: 80px;
+            display: flex;
+            align-items: center;
+
+            & h1{
+                font-size: 2rem;
+                font-weight: 700;
+                margin-left: 0.5rem;
+                background: var(--degradiente-color);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                
+            }
+            .slash{
+                width: 2rem;
+                height: auto;
+                color: var(--primary-color);
+            }
+        }
+    }
+
+/* CONTENIDO PRINCIPAL - SOBRE MI */
+    .about{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+        .elements-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+
+            .texto{
+                flex: 1;
+                padding-top: 4.5rem;
+
+                .keyword{
+                    color: var(--accent-color);
+                }
+            }
+
+            .tabs-container{
+                flex: 3;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+
+                .tabs{
+                    display: flex;
+                    cursor: pointer; 
+
+                    .name-tab{
+                        position: relative;
+                        font-weight: 600;
+                        font-size: 1.2rem;
+                        padding: 0.2rem 1rem;
+                        
+                    }
+                    .name-tab::after{
+                        content: '';
+                        position: absolute;
+                        height: 2px;
+                        width: 0;
+                        bottom: 0;
+                        left: 0;
+                        background: var(--secondary-color);
+                        transition: width 0.3s ease-out;
+                        
+                    }
+                    .name-tab:hover::after{
+                        animation: grow-tab 0.6s forwards;
+                    }
+                    .name-tab:active::after{
+                        animation: forwards;
+                        width: 30%;
+                    }
+                }
+
+                .tab-content{
+                    list-style-type: none;
+
+                    .stack{
+                        display: flex;
+                        flex-direction: column;
+                        border-radius: 15px;
+                        background: rgba(255, 241, 153, 0.80);
+                        gap: 10px;
+                        padding: 15px;
+                        margin: 15px 0;
+                        
+                        transition: transform .3s, box-shadow .3s;
+                        
+                        &:hover{
+                            transform: scale(1.05);
+                            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+                        }
+
+                        & h3{
+                            text-align: left;
+                            padding: 0 20px;
+                            font-size: 1.5;
+                            font-weight: 500;
+                            color: var(--text2-color);
+                        }
+                        & .icon-container{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 0 20px;
+                            gap: 30px;
+
+                            & .icon-general{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                
+                                & .icono{
+                                    font-size: 2rem;
+                                    width: 2rem;
+                                    height: auto;
+                                }
+
+                                & p{
+                                    font-size: .8rem;
+                                    font-weight: 200;
+                                    color: var(--background-color);
+                                }
+                            }
+                        }
+                    }
+
+                    .text-container{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        padding: 0 60px;
+
+                        list-style: none;
+                        
+                        & .date{
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                            color: var(--secondary-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ANIMACION DEL TAB */
+@keyframes grow-tab {
+    0% {translate: 20% 0;}
+    50% { width: 90%;}
+    100% {width: 30%;}
+}
+
+/* CONTENIDO PRINCIPAL - PROYECTOS */
+    .projects{
+        .projects-container{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3rem;
+            gap: 20px;
+            justify-content: center;
+
+            .project-card{
+                position: relative;
+                width: 300px;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                transition: transform .3s ease-in-out;
+
+                /* img */
+                .project-info{
+                    padding: 1rem;
+                    background-color: var(--secondary-color);
+                    text-align: center;
+                    h3{
+                        margin: 0;
+                        font-size: 1.5rem;
+                        color: var(--background-color);
+                    }
+                    p{
+                        margin: 0.5rem 0 0;
+                        color: var(--text2-color);
+                    }
+                }
+                .description{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 1.5rem;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                    backdrop-filter: blur(5px); /* Difumina el contenido de fondo */
+                    
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ESTILOS PARA HEADER MOBILE Y TABLET */
+@media (max-width: 768px){
+    .header{
+        height: initial;
+        
+        .navbar{
+            flex-direction: column;
+            margin-left: 10px;
+            margin-right: 10px;
+            row-gap: 20px;
+
+            .nav-logo{
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+
+            .nav-list{
+                padding: initial;
+
+                .nav-item{
+                    .nav-link{
+                        font-weight: 300;
+                        margin-right: initial;
+                        font-size: 1rem;
+                        padding: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
